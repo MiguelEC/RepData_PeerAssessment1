@@ -3,25 +3,26 @@ title: 'Reproducible Research: Peer Assessment 1'
 output:
   pdf_document: default
   html_document:
-    keep_md: yes 
+    keep_md: yes
+  word_document: default
 ---
 
-## Loading packages
+## Loading necessary packages
 ```{r}
 library(knitr)
 opts_chunk$set(echo = TRUE)
 library(lattice)
 ```
 
-## Preprocessing data
+## Loading and preprocessing the data
 ###1. Load the data
 ```{r}
 if(!file.exists('activity.csv')){
     unzip('activity.zip')
 }
-data <- read.csv("activity/activity.csv", header = TRUE)
+data <- read.csv("activity.csv", header = TRUE)
 ```
-### 2. Transform the data 
+### 2. Transform the data into a suitable format for analysis
 
 Take a look at the contents of the `data` dataset.
 ```{r}
