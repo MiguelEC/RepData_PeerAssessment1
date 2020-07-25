@@ -15,16 +15,13 @@ library(lattice)
 ```
 
 ## Loading and preprocessing the data
-###1. Load the data
 ```{r}
 if(!file.exists('activity.csv')){
     unzip('activity.zip')
 }
 data <- read.csv("activity.csv", header = TRUE)
 ```
-### 2. Transform the data into a suitable format for analysis
 
-Take a look at the contents of the `data` dataset.
 ```{r}
 dim(data)
 head(data)
@@ -37,13 +34,9 @@ str(data)
 ```
 Now the `data` dataset is ready for analysis.
 
-* Note 1: The coding of the interval names is as follows - 500 should be considered as 5:00 and 1000 as 10:00, and so on. The x-axis can be considered as a full 24-hour-day starting from midnight.
-
-* Note 2: There are a number of days/intervals where there are missing values (coded as `NA`). Missing values in the dataset are ignored for further analysis.
 
 ## What is mean total number of steps taken per day?
 
-### 1. Total number of steps taken per day
 ```{r}
 stepsDay <- aggregate(steps ~ date, data=data, sum)
 ```
@@ -54,12 +47,10 @@ dim(stepsDay)
 head(stepsDay)
 ```
 
-### 2. Histogram of the total number of steps taken each day
 ```{r}
 hist(stepsDay$steps, main="Histogram of the total steps taken per day", xlab='Total steps taken per day', ylab='Frequency', breaks=14)
 ```
 
-### 3. Mean and median of the total number of steps taken per day
 
 Compute the mean
 ```{r}
